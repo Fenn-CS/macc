@@ -9,13 +9,14 @@ import json
 
 # Credentials loaded in this manner to prevent codacy warnings
 credentials = json.dumps({
-  "username":"foo",
-  "password":"foobar",
-  "username_":"foo_",
-  "password_":"foobar_" 
+    "username": "foo",
+    "password": "foobar",
+    "username_": "foo_",
+    "password_": "foobar_"
 })
 
 credentials = json.loads(credentials)
+
 
 class MalariaTests(TestCase):
 
@@ -23,9 +24,13 @@ class MalariaTests(TestCase):
         """Setup the test database"""
 
         self.user1 = User.objects.create_superuser(
-        username=credentials['username'], password=credentials['password'], email='')
+                         username=credentials['username'],
+                         password=credentials['password'],
+                         email='')
         self.user2 = User.objects.create_superuser(
-        username=credentials['username_'], password=credentials['password_'], email='')
+                         username=credentials['username_'],
+                         password=credentials['password_'],
+                         email='')
         self.user1.save()
         self.user2.save()
         self.post1 = Post.objects.create(
@@ -41,7 +46,8 @@ class MalariaTests(TestCase):
 
         revpost = create_revpost(
             self.user1.pcuser, self.post1, self.post1.title_post,
-            self.post1.description_post, self.post1.link_post, self.post1.photo)
+            self.post1.description_post, self.post1.link_post,
+            self.post1.photo)
 
         self.assertIsNotNone(revpost)
 
@@ -102,7 +108,8 @@ class MalariaTests(TestCase):
 
         revpost_1 = create_revpost(
             self.user1.pcuser, self.post1, self.post1.title_post,
-            self.post1.description_post, self.post1.link_post, self.post1.photo)
+            self.post1.description_post, self.post1.link_post,
+            self.post1.photo)
 
         revpost_list = get_revposts_of_owner(self.post1.id)
         self.assertEqual(len(revpost_list), 1)
@@ -130,7 +137,8 @@ class MalariaTests(TestCase):
 
         revpost_1 = create_revpost(
             self.user1.pcuser, self.post2, self.post2.title_post,
-            self.post2.description_post, self.post2.link_post, self.post2.photo)
+            self.post2.description_post, self.post2.link_post,
+            self.post2.photo)
 
         revpost_list = get_revposts_of_owner(self.post2.id)
         self.assertEqual(len(revpost_list), 1)
