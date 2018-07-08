@@ -15,4 +15,4 @@ script:
  - python3 manage.py migrate --fake-initial
  - python3 manage.py makemigrations infohub malaria_web pcsa pcsa_GHN pcsa_safety_tools
  - python3 manage.py migrate --fake-initial
-# - python3 manage.py test --settings=infohub.settings
+ - python3 manage.py test --settings=infohub.settings
