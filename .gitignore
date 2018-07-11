@@ -11,3 +11,5 @@ submit/
 *.DS_Store
 */migrations/
 credentials.json
+.pytest_cache
+.coverage

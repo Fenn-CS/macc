@@ -1,0 +1,10 @@
+[report]
+omit =
+    */migrations/*
+    */tests/*
+    manage.py
+    infohub/systers_portal/*
+    */admin.py
+    */site-packages/*
+[html]
+directory = reports/htmlcov
