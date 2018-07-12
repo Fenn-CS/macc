@@ -6,7 +6,7 @@ python:
   - "3.6"
 install:
   - "pip3 install -r requirements.txt"
-  - "pip install coveralls"
+  - "pip3 install coveralls"
 before_script:
   - psql -c "create role myuser with createrole createdb login password 'mypassword';" -U postgres
   - psql -c "create database webapp;" -U postgres

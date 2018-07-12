@@ -6,5 +6,4 @@ omit =
     infohub/systers_portal/*
     */admin.py
     */site-packages/*
-[html]
-directory = reports/htmlcov
+
