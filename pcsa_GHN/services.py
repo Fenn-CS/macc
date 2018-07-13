@@ -104,8 +104,6 @@ def search_post(username, title, description):
     return search_query
 
 def count_posts_by_pcuser(username):
-
-    search_query = ghnPost.objects.all()
     """
     This returns the number of total posts added
     by the Pcuser.
@@ -113,8 +111,9 @@ def count_posts_by_pcuser(username):
     return the total number of post objects present 
     in the database
     """
+    search_query = ghnPost.objects.all()
     if username:
-        search_query = search_query.filter(owner=Pcuser.objects.filter(user__username__contains=username))
+        search_query = search_query.filter(owner=Pcuser.objects.filter(user__username__iexact=username))
 
     count = search_query.count()
 
